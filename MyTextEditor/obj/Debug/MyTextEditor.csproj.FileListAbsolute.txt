@@ -1,0 +1,15 @@
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\bin\Debug\MyTextEditor.exe.config
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\bin\Debug\MyTextEditor.exe
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\bin\Debug\MyTextEditor.pdb
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.csprojAssemblyReference.cache
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MainWindow.g.cs
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\App.g.cs
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor_MarkupCompile.cache
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor_MarkupCompile.lref
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MainWindow.baml
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.g.resources
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.Properties.Resources.resources
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.csproj.GenerateResource.cache
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.csproj.CoreCompileInputs.cache
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.exe
+C:\Users\kamil\source\repos\MyTextEditor\MyTextEditor\obj\Debug\MyTextEditor.pdb

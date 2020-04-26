@@ -1,0 +1,68 @@
+﻿<Window x:Class="MyTextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyTextEditor"
+        mc:Ignorable="d"
+        Name="myWindow"
+        KeyDown="Window_KeyDown"
+        Title="Kedit Text Editor" Height="450" Width="800" Icon="accessories-text-editor-icon.png">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="NewCommand_CanExecute" Executed="NewCommand_Executed" />
+        <CommandBinding Command="Open" CanExecute="OpenCommand_CanExecute" Executed="OpenCommand_Executed" />
+        <CommandBinding Command="Close" CanExecute="CloseCommand_CanExecute" Executed="CloseCommand_Executed" />
+        <CommandBinding Command="Save" CanExecute="SaveCommand_CanExecute" Executed="SaveCommand_Executed" />
+        <CommandBinding Command="SaveAs" CanExecute="SaveAsCommand_CanExecute" Executed="SaveAsCommand_Executed" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="SaveAs" Key="S" Modifiers="Ctrl+Shift" />
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New File" Name="NewFile" Click="NewFile_Click" />
+                <MenuItem Header="_Open File" Name="OpenFile" Click="OpenFile_Click" />
+                <MenuItem Header="Open Folder..." IsEnabled="False" />
+                <MenuItem Header="Open _Recent">
+                    <Menu ItemsSource="{Binding ElementName=myWindow, Path=TabManager.RecentFilesMenu}">
+                        <Menu.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </Menu.ItemsPanel>
+                    </Menu>
+                </MenuItem>
+                <MenuItem Header="Reopen with Encoding" IsEnabled="False"/>
+                <MenuItem Header="N_ew View into File" IsEnabled="False"/>
+                <MenuItem Header="_Save" Command="Save" />
+                <MenuItem Header="Save with Encoding" IsEnabled="False"/>
+                <MenuItem Header="Save _As..." Command="SaveAs" />
+                <MenuItem Header="Save A_ll" IsEnabled="{Binding ElementName=myWindow, Path=TabManager.HasTabs}" />
+                <Separator />
+                <MenuItem Header="New _Window" IsEnabled="False"/>
+                <MenuItem Header="Close Window" Click="ExitButton_Click"/>
+                <Separator />
+                <MenuItem Header="_Close File" Command="Close" />
+                <MenuItem Header="Revert File" IsEnabled="False"/>
+                <MenuItem Header="Close All Files (Ctrl+Shift+W)" Click="CloseAllFilesButton_Click" IsEnabled="{Binding ElementName=myWindow, Path=TabManager.HasTabs}" />
+                <Separator />
+                <MenuItem Header="E_xit" Click="ExitButton_Click" />
+            </MenuItem>
+        </Menu>
+        <TabControl DockPanel.Dock="Top" x:Name="tabControl1" ItemsSource="{Binding ElementName=myWindow, Path=TabManager.Tabs}" SelectionChanged="TabControl1_SelectionChanged">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Name="stackPanel1">
+                        <TextBlock Text="{Binding Title}" />
+                        <Button Content="{Binding ModifiedIcon}" BorderThickness="0" CommandParameter="{Binding TabNo}" Background="Transparent" Margin="20,0,0,0" Padding="0" Name="CloseButton" Click="CloseButton_Click"/>
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate></DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        <TextBox AcceptsReturn="True" x:Name="txtContent" TextChanged="TxtContent_TextChanged" />
+    </DockPanel>
+</Window>
